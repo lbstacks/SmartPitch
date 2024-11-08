@@ -1,5 +1,6 @@
 import { useUser } from '@clerk/clerk-react'
 import { Navigate, Outlet } from 'react-router-dom'
+import Navbar from './components/custom/Navbar';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <>
+      <Navbar />
       <Outlet />
     </>
   )
