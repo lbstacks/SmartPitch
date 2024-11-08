@@ -18,7 +18,9 @@ const CreateNewCV=(data)=>axiosClient.post('/user-cvs',{
 })
 
 
+const GetUserCvs=(userEmail)=>axiosClient.get('/user-cvs?filters[userEmail][$eq]='+userEmail)
 
 export default{
-    CreateNewCV
+    CreateNewCV,
+    GetUserCvs
 }
