@@ -1,12 +1,12 @@
-import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-      <h1 className='flex justify-center items-center font-bold text-2xl my-20'>Project Setup</h1>
+      <Outlet />
     </>
   )
 }
