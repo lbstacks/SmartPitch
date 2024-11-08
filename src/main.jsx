@@ -7,7 +7,10 @@ import LoginIn from './auth/LoginIn.jsx';
 import path from 'path';
 import HomePage from './home/HomePage.jsx';
 import Dashboard from './dashboard/Dashboard.jsx';
+import { ClerkProvider } from '@clerk/clerk-react';
 
+
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 const router = createBrowserRouter([
   {
@@ -38,6 +41,18 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <RouterProvider router={router} />
-  </StrictMode>,
-)
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+      <RouterProvider
+        router={router}
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+          v7_fetcherPersist: true,
+          v7_normalizeFormMethod: true,
+          v7_partialHydration: true,
+          v7_skipActionErrorRevalidation: true,
+        }}
+      />
+    </ClerkProvider>
+  </StrictMode>
+);
