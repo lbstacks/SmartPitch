@@ -153,7 +153,7 @@ function PersonalDetails({enabledNext}) {
 
                 <div className='mt-6 flex justify-end'>
                     <Button type="submit"
-                    disabled={loading}
+                      disabled={loading}
                     >{loading? <Loader className='animate-spin' />:"Save"}</Button>
                 </div>
             </form>

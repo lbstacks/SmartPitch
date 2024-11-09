@@ -1,10 +1,11 @@
 import React, {  useState } from 'react'
 import PersonalDetails from './forms/PersonalDetails'
+import Summary from './forms/Summary';
 import { Button } from '@/components/ui/button'
 import { ArrowLeftIcon, ArrowRightIcon,  LayoutGridIcon } from 'lucide-react'
 
 function FormSection() {
-const [activeFormIndex, setActiveFormIndex]=useState(1);
+const [activeFormIndex, setActiveFormIndex]=useState(2);
 const [enableNext, setEnableNext]=useState(false);
 
 
@@ -24,7 +25,6 @@ const [enableNext, setEnableNext]=useState(false);
               <ArrowLeftIcon />
             </Button>
           )}
-
           <Button
             className="gap-2"
             size="sm"
@@ -37,9 +37,11 @@ const [enableNext, setEnableNext]=useState(false);
       </div>
 
       {/*Personal information  */}
-         {activeFormIndex==1? <PersonalDetails enabledNext={(v)=>setEnableNext(v)}/>:null}
+         {activeFormIndex==1? <PersonalDetails enabledNext={(v)=>setEnableNext(v)}/>
+         :activeFormIndex==2? <Summary enabledNext={(v)=>setEnableNext(v)}/>:null
+         
+      }
 
-      {/* Summary */}
 
       {/* Work experience */}
 
