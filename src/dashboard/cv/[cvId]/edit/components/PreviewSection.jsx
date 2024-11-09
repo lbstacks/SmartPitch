@@ -12,7 +12,7 @@ function PreviewSection() {
 
     const {cvInfo, setCvInfo}=useContext(CvInfoContext);
   return (
-    <div className='shadow-lg h-full p-14 border-t-[25px]' 
+    <div className='shadow-lg h-full border-t-[25px] p-4 sm:p-6 md:p-8 lg:p-14' 
          style={{
         borderColor: cvInfo?.themeColor
       }}>

@@ -2,31 +2,41 @@ import React from 'react'
 
 function EducationPreview({cvInfo}) {
   return (
-    <div className="my-6">
-      <h2 className="text-sm  text-center  mb-2 font-bold font-mono">Education</h2>
+    <div className="my-6 sm:my-8 max-w-4xl mx-auto">
+      <h2 className="text-base sm:text-lg lg:text-xl text-center mb-4 font-bold font-mono">
+        Education
+      </h2>
 
-      <hr
-        className="border-[1.5px] my-2"
-        style={{
-          borderColor: cvInfo?.themeColor,
-        }}
+      <hr className="border-[1.5px] mb-6"
+        style={{ borderColor: cvInfo?.themeColor }}
       />
 
-      {cvInfo.education.map((education,index)=>(
-        <div key={index} className='my-5'>
-            <h2 className='text-sm font-bold my-1'>{education?.universityName}</h2>
-            <h2 className='text-xs font-mono font-normal my-1'>{education?.city} |   {education?.state}</h2>
+      <div className="space-y-6">
+        {cvInfo.education.map((education, index) => (
+          <div key={index} className='group hover:bg-gray-50 p-4 sm:p-6 rounded-lg transition-all'>
+            <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2'>
+              <h3 className='font-bold text-sm sm:text-base lg:text-lg'>
+                {education?.universityName}
+              </h3>
+              <span className='text-sm sm:text-base text-gray-600'>
+                {education?.city}, {education?.state}
+              </span>
+            </div>
 
-            <h2 className='text-xs flex justify-between my-2 font-mono font-semibold'>
-                {education?.degree} {education?.major}  
-                <span className='text-xs font-mono'>
-                    {education?.startDate} - {education?.endDate}
-                </span>
-            </h2>
-        </div>
-      ))}
+            <div className='mt-2 flex flex-col sm:flex-row sm:items-center gap-2'>
+              <span className='font-semibold text-sm sm:text-base'>
+                {education?.degree} {education?.major}
+              </span>
+              <span className='hidden sm:block text-gray-600'>•</span>
+              <span className='text-sm sm:text-base text-gray-600'>
+                {education?.startDate} - {education?.endDate}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
 export default EducationPreview

@@ -2,29 +2,34 @@ import React from 'react'
 
 function CertificationPreview({cvInfo}) {
   return (
-    <div className="my-10">
-      <h2 className="text-sm text-center mb-2 font-bold font-mono">Certifications</h2>
+    <div className="my-6 sm:my-8 max-w-4xl mx-auto">
+      <h2 className="text-base sm:text-lg lg:text-xl text-center mb-4 font-bold font-mono">
+        Certifications
+      </h2>
 
-      <hr
-        className="border-[1.5px] my-2"
-        style={{
-          borderColor: cvInfo?.themeColor,
-        }}
+      <hr className="border-[1.5px] mb-6"
+        style={{ borderColor: cvInfo?.themeColor }}
       />
 
-      {cvInfo?.certifications?.map((certification, index) => (
-        <div key={index} className='my-2'>
-          <div className='flex items-center gap-3 text-sm'>
-            <span className='font-semibold'>{certification?.name}</span>
-            <span className='text-gray-500'>||</span>
-            <span>{certification?.institution}</span>
-            <span className='text-gray-500'>||</span>
-            <span>{certification?.yearObtained}</span>
+      <div className="space-y-2">
+        {cvInfo?.certifications?.map((certification, index) => (
+          <div key={index} className='group hover:bg-gray-50 p-4 sm:p-6 rounded-md transition-all'>
+            <div className='flex flex-col gap-2'>
+              <h3 className='font-semibold text-sm sm:text-base lg:text-sm'>
+                {certification?.name}
+              </h3>
+              <span className='text-sm sm:text-base text-gray-700'>
+                {certification?.institution}
+              </span>
+              <span className='text-sm sm:text-base text-gray-700'>
+                {certification?.yearObtained}
+              </span>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
 export default CertificationPreview
